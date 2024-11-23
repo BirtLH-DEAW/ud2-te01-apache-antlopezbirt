@@ -39,7 +39,7 @@ COPY conf/virtualhost-ssl.conf /etc/apache2/sites-available/
 COPY conf/certs/antlopez-eus.pem /etc/ssl/certs/antlopez-eus.pem
 COPY conf/certs/antlopez-eus.key /etc/ssl/private/antlopez-eus.key
 
-## Fichero de contraseñas para Basic Auth
+## Fichero de contraseñas para Basic Auth.
 COPY conf/passwd /etc/apache2/
 
 # Activa los sitios
