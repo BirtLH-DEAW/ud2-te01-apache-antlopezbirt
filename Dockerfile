@@ -10,7 +10,7 @@ LABEL \
 	description="DEAW02 TE01" \
 	creationDate="23-11-2024"
 
-# Ejecuta los comandos necesarios
+# Ejecuta los comandos necesarios. No nos haría falta nano, pero no viene mal.
 
 RUN \
 	apt update \
@@ -33,17 +33,16 @@ COPY html/css_privado /var/www/html/antlopez/privado/
 
 ## Configuración del sitio www.antlopez.eus
 COPY conf/virtualhost.conf /etc/apache2/sites-available/
-COPY conf/virtualhost-ssl.conf /etc/apache2/sites-available/
 
 ## Certificado y clave privada
 COPY conf/certs/antlopez-eus.pem /etc/ssl/certs/antlopez-eus.pem
 COPY conf/certs/antlopez-eus.key /etc/ssl/private/antlopez-eus.key
 
-## Fichero de contraseñas para Basic Auth.
+## Fichero de contraseñas para Basic Auth
 COPY conf/passwd /etc/apache2/
 
-# Activa los sitios
-RUN a2ensite virtualhost.conf virtualhost-ssl.conf
+# Activa el sitio antlopez.eus
+RUN a2ensite virtualhost.conf
 
 # Indica los puertos que deberían ser publicados al crear el contenedor
 EXPOSE 80 443
