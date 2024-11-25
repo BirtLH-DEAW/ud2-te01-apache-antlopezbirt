@@ -21,15 +21,15 @@ RUN \
 
 ## Default Site
 COPY html/index.html /var/www/html/
-COPY html/css_index /var/www/html/
+COPY html/css_index /var/www/html/css_index
 
 ## antlopez.eus
 COPY html/virtualhost.html /var/www/html/antlopez/
-COPY html/css_virtualhost /var/www/html/antlopez/
+COPY html/css_virtualhost /var/www/html/antlopez/css_virtualhost
 
 ## Privado
 COPY html/privado.html /var/www/html/antlopez/privado/
-COPY html/css_privado /var/www/html/antlopez/privado/
+COPY html/css_privado /var/www/html/antlopez/privado/css_privado
 
 ## Configuración del sitio www.antlopez.eus
 COPY conf/virtualhost.conf /etc/apache2/sites-available/
